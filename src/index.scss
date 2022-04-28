@@ -1,0 +1,341 @@
+@font-face {
+  font-family: "Kessel105W00-Thin";
+  src: url("//db.onlinewebfonts.com/t/961c85cae4e7fe03309eb58883a6cc3c.eot");
+  src: url("//db.onlinewebfonts.com/t/961c85cae4e7fe03309eb58883a6cc3c.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/961c85cae4e7fe03309eb58883a6cc3c.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/961c85cae4e7fe03309eb58883a6cc3c.woff") format("woff"), url("//db.onlinewebfonts.com/t/961c85cae4e7fe03309eb58883a6cc3c.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/961c85cae4e7fe03309eb58883a6cc3c.svg#Kessel105W00-Thin") format("svg"); 
+}
+
+@charset "utf-8";
+  body {
+    background: #dcb595;
+    font-family: 'Kessel105W00-Thin', Arial;
+    overflow: hidden;
+    min-width: 1000px;
+  }
+
+  .bg-title {
+    position: absolute;
+    z-index: 999;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    background: #dcb595;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.1;
+  }
+
+  .title {
+    position: fixed;
+    top: 0;
+    background: #dcb595;
+    z-index: 999;
+    width: 100%;
+    border-bottom: 3px solid white;
+    color: #804C36 !important;
+
+    div:nth-child(2) {
+      text-align: right;
+    }
+  }
+
+  .control {
+    position: fixed;
+    z-index: 999;
+    top: calc(100vh - 50px);
+    background: #dcb595;
+    width: 100%;
+    border-top: 3px solid white;
+
+    @media (max-width: 1300px) {
+     top: calc(100vh - 100px);
+    }
+  }
+
+  video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .buttons {
+    text-align: right;
+    button {
+      padding: 10px 15px 7px 15px;
+      width: 110px;
+      text-align: center;
+      border: 2px solid #dcb595;
+      background: #dcb595 !important;
+      color: #804C36 !important;
+    }
+
+    button:hover {
+      background: #804C36 !important;
+      color: white !important;
+      border: 2px solid white !important;
+    }
+
+    button:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+.audio-player {
+  max-width: 100%;
+  width: 100%;
+  background: #dcb595;
+  box-shadow: 0 0 10px 0 #000a00;
+  color: #804C36;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+
+  .timeline {
+    background: white;
+    width: 100%;
+    cursor: pointer;
+    height: 4px;
+    display: block;
+
+    .progress {
+      background: #804C36;
+      width: 0;
+      height: 100%;
+      transition: 0.25s;
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 20px;
+
+    @media (max-width: 1300px) {
+      padding: 20px 20px;
+    }
+  }
+
+  .track-controls{
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: #804C36;
+      width: 15px;
+      height: 15px;
+      display: block;
+
+      @media (max-width: 1300px) {
+        width: 60px;
+        height: 60px;;
+      }
+    }
+  }
+
+  .play, .prev, .next{
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+
+      @media (max-width: 1300px) {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .play-toggle {
+    margin:0 3px 0 10px;
+    &:hover {
+      transform: scale(1.1);
+
+      @media (max-width: 1300px) {
+        transform: scale(1.1);
+      }
+    }
+
+    &.play {
+      cursor: pointer;
+      position: relative;
+      left: 0;
+      height: 0;
+      width: 0;
+      border: 7px solid #dcb595;
+      border-left: 13px solid #804C36;
+
+      @media (max-width: 1300px) {
+        border: 30px solid #dcb595;
+        border-left: 52px solid #804C36;
+        border-right-width: 6px;
+      }
+    }
+
+    &.pause {
+      height: 15px;
+      width: 20px;
+      cursor: pointer;
+      position: relative;
+
+      @media (max-width: 1300px) {
+        height: 60px;
+        width: 60px;
+      }
+
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #804C36;
+        content: "";
+        height: 15px;
+        width: 3px;
+
+        @media (max-width: 1300px) {
+          height: 58px;
+          width: 20px;
+          top: 1px;
+        }
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        right: 8px;
+        background: #804C36;
+        content: "";
+        height: 15px;
+        width: 3px;
+
+        @media (max-width: 1300px) {
+          height: 58px;
+          width: 20px;
+          top: 1px;
+        }
+      }
+    }
+  }
+
+  .time {
+    display: flex;
+    align-items: center;
+    > * {
+      padding: 2px;
+    }
+
+    @media (max-width: 1300px) {
+      font-size: 20px;
+    }
+  }
+
+  .name{
+    overflow: hidden;
+    max-width: 100px;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center;
+
+    @media (max-width: 1300px) {
+      padding-top: 14px;
+      font-size: 20px;
+    }
+
+    p {
+      animation: marquee 15s linear infinite;
+      padding-left:30%;
+    }
+  }
+
+  .volume-container {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+      .volume-slider {
+        left: -123px;
+        width: 120px;
+      }
+    }
+  }
+
+  .volume-button {
+    height: 26px;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    &.mute {
+      &:before {
+        content: '';
+        border-bottom: 2px solid #804C36;
+        transform: rotate(-45deg);
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: #804C36;
+      display: block;
+
+      @media (max-width: 1300px) {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .volume {
+      transform: scale(0.7);
+    }
+  }
+
+  .volume-slider {
+    position: absolute;
+    left: -3px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    width: 0;
+    height: 15px;
+    background: white;
+    box-shadow: 0 0 20px #000a;
+    transition: .25s;
+
+    .volume-percentage {
+      background: #804C36;
+      height: 100%;
+      width: 75%;
+    }
+  }
+
+  .track-list {
+    width: 100%;
+    color: #000;
+    background: #fff;
+
+    .item {
+      cursor: pointer;
+      padding: 6px 10px;
+      font-size: 18px;
+      transition: 0.3s all;
+
+      &:hover{
+        background: rgba(lime, 0.5);
+      }
+    }
+  }
+}
+
+@keyframes marquee {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
+
